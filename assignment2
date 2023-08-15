@@ -1,0 +1,31 @@
+const person = {
+    Name: "Johny",
+    Age: 40,
+    Cars: [
+        {
+            name: "ford",
+            models: ["mustang", "Fiest", "Mustang"],
+        },
+        {
+            Name: "BMW",
+            models: [320, 'x3', 'x5'],
+        },
+        {
+            Name: "fiat",
+            models: [500, "panda"],
+        },
+    ]
+};
+
+function iterateValues(obj, indent = "") {
+    for (const x in obj) {
+        if (typeof obj[x] === "object") {
+            console.log(`${indent}${x}:`);
+            iterateValues(obj[x], indent + "  ");
+        } else {
+            console.log(`${indent}${x}: ${obj[x]}`);
+        }
+    }
+}
+
+iterateValues(person);
